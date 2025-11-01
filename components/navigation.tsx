@@ -21,10 +21,10 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
   }, [])
 
   const navItems = [
-    { id: "home", label: "Home", icon: "◆" },
-    { id: "skills", label: "Skills", icon: "◇" },
-    { id: "projects", label: "Projects", icon: "■" },
-    { id: "contact", label: "Contact", icon: "●" },
+    { id: "home", label: "Oasis", icon: "🏜️" },
+    { id: "skills", label: "Journey", icon: "🗺️" },
+    { id: "projects", label: "Artifacts", icon: "⚱️" },
+    { id: "contact", label: "Caravan", icon: "🐫" },
   ]
 
   const navVariants = {
@@ -56,8 +56,8 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
       variants={navVariants}
       className={`fixed top-0 left-0 right-0 z-40 backdrop-blur-md transition-all duration-300 ${
         scrollY > 50
-          ? "bg-slate-950/60 border-b border-cyan-500/30 shadow-lg shadow-cyan-500/5"
-          : "bg-slate-950/30 border-b border-cyan-500/20"
+          ? "bg-amber-950/70 border-b border-orange-500/40 shadow-lg shadow-orange-500/10"
+          : "bg-amber-950/40 border-b border-orange-500/20"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -66,10 +66,10 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
           initial={{ opacity: 0, scale: 0.5, rotate: -20 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-          className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 tracking-wider cursor-pointer hover:scale-110 transition-transform"
+          className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-500 tracking-wider cursor-pointer hover:scale-110 transition-transform"
           onClick={() => setActiveSection("home")}
         >
-          BR
+          ☀️ BR
         </motion.div>
 
         {/* Desktop Nav with staggered animations */}
@@ -89,10 +89,10 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
               onClick={() => setActiveSection(item.id)}
               className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 group`}
             >
-              <span className="text-cyan-400 mr-2 group-hover:animate-pulse">{item.icon}</span>
+              <span className="mr-2 group-hover:animate-pulse">{item.icon}</span>
               <span
                 className={`${
-                  activeSection === item.id ? "text-cyan-300 font-semibold" : "text-slate-400 group-hover:text-cyan-300"
+                  activeSection === item.id ? "text-orange-300 font-semibold" : "text-amber-500/70 group-hover:text-orange-300"
                 } transition-colors duration-300`}
               >
                 {item.label}
@@ -100,7 +100,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
               {activeSection === item.id && (
                 <motion.div
                   layoutId="activeIndicator"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-500 to-amber-500"
                   transition={{ type: "spring", stiffness: 380, damping: 40 }}
                 />
               )}
@@ -108,7 +108,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
                 initial={{ width: 0 }}
                 whileHover={{ width: "100%" }}
                 transition={{ duration: 0.3 }}
-                className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-purple-400 to-cyan-400"
+                className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-amber-500 to-orange-400"
               />
             </motion.button>
           ))}
@@ -116,7 +116,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
 
         {/* Mobile Menu Button with rotation animation */}
         <motion.button
-          className="md:hidden text-cyan-400 text-xl"
+          className="md:hidden text-orange-400 text-xl"
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -147,7 +147,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
               },
             },
           }}
-          className="bg-slate-950/50 backdrop-blur-md border-b border-cyan-500/20 p-4 space-y-2"
+          className="bg-amber-950/50 backdrop-blur-md border-b border-orange-500/20 p-4 space-y-2"
         >
           {navItems.map((item) => (
             <motion.button
@@ -162,8 +162,8 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
               }}
               className={`block w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all duration-300 ${
                 activeSection === item.id
-                  ? "bg-cyan-400/10 text-cyan-300 border border-cyan-400/50"
-                  : "text-slate-400 hover:text-cyan-300 hover:bg-slate-900/30"
+                  ? "bg-orange-500/10 text-orange-300 border border-orange-500/50"
+                  : "text-amber-500/70 hover:text-orange-300 hover:bg-amber-900/30"
               }`}
             >
               <span className="mr-2">{item.icon}</span>
